@@ -1,4 +1,4 @@
-package lessonThree;
+package lesson_three;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public interface PracticeFormPage {
+public class PracticeFormPage {
     SelenideElement firstNameInput = $("#firstName").as("Инпут для ввода имени");
     SelenideElement lastNameInput = $("#lastName").as("Инпут для ввода фамилии");
     SelenideElement emailInput = $("#userEmail").as("Инпут для ввода емейла");
@@ -31,26 +31,26 @@ public interface PracticeFormPage {
     SelenideElement cityContainer = $("#city").as("Выпадающий список выбора города");
     SelenideElement submitButton = $("#submit").as("Кнопка 'Сабмит'");
 
-    static void fillAllFields(String firstName, String lastName, String email,
+     void fillAllFields(String firstName, String lastName, String email,
                                           String mobileNumber, String month, String year,
                                           String day, String subject, String filePath, String currentAddress,
                                           String state, String city) {
-        firstNameInput.sendKeys(firstName);
-        lastNameInput.sendKeys(lastName);
-        emailInput.sendKeys(email);
+        firstNameInput.setValue(firstName);
+        lastNameInput.setValue(lastName);
+        emailInput.setValue(email);
         maleRadioButton.click();
-        mobileInput.sendKeys(mobileNumber);
+        mobileInput.setValue(mobileNumber);
         birthDateField.click();
         monthSelectButton.click();
         monthList.findBy(text(month)).click();
         yearSelectButton.click();
         yearList.findBy(text(year)).click();
         dayList.findBy(text(day)).click();
-        subjectsInput.sendKeys(subject);
+        subjectsInput.setValue(subject);
         subjectsList.findBy(text(subject)).click();
         sportCheckbox.click();
         pictureUploadButton.uploadFile(new File(filePath));
-        currentAddressField.sendKeys(currentAddress);
+        currentAddressField.setValue(currentAddress);
         stateContainer.click();
         stateContainer.$(byText(state)).click();
         cityContainer.click();

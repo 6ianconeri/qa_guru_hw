@@ -1,4 +1,4 @@
-package lessonThree;
+package lesson_three;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public interface PracticeSubmittingfForm {
+public class PracticeSubmittingfForm {
 
     SelenideElement studentName = $(".table-responsive").$(byText("Student Name")).parent();
     SelenideElement studentEmail = $(".table-responsive").$(byText("Student Email")).parent();
@@ -21,7 +21,7 @@ public interface PracticeSubmittingfForm {
     SelenideElement studentStateAndCity = $(".table-responsive").$(byText("State and City")).parent();
     SelenideElement submittingText = $(byText("Thanks for submitting the form"));
 
-    static void checkAllFields(String firstName, String lastName, String email, String gender,
+     void checkAllFields(String firstName, String lastName, String email, String gender,
                         String mobileNumber, String month, String year,
                         String day, String subject, String hobbie, String shortFilePath, String currentAddress,
                         String state, String city) {
@@ -37,7 +37,7 @@ public interface PracticeSubmittingfForm {
         studentStateAndCity.shouldHave(text(state + " " + city));
     }
 
-    static void checkSubmittingText() {
+     void checkSubmittingText() {
         submittingText.shouldBe(visible);
     }
 
